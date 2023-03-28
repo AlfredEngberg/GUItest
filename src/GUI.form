@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI">
+  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="-16" width="590" height="234"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <toolbar id="d2449">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="25"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="58b81" class="javax.swing.JButton" binding="arkivButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Arkiv"/>
+            </properties>
+          </component>
+          <component id="40af8" class="javax.swing.JButton" binding="saveButton">
+            <constraints/>
+            <properties>
+              <text value="Spara"/>
+            </properties>
+          </component>
+          <component id="d8d60" class="javax.swing.JButton" binding="openButton">
+            <constraints/>
+            <properties>
+              <text value="Öppna"/>
+            </properties>
+          </component>
+          <component id="fcdb7" class="javax.swing.JButton" binding="findButton">
+            <constraints/>
+            <properties>
+              <text value="Hitta"/>
+            </properties>
+          </component>
+        </children>
+      </toolbar>
+      <component id="eefe6" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+</form>
