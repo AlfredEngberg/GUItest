@@ -5,11 +5,12 @@ import java.io.*;
 
 public class GUI {
     private JPanel panel1;
-    private JButton arkivButton;
     private JButton saveButton;
     private JButton openButton;
     private JButton findButton;
     private JTextArea textArea1;
+    private JButton newButton;
+    private JComboBox fileBox1;
 
     public GUI() {
         openButton.addActionListener(new ActionListener() {
@@ -44,10 +45,11 @@ public class GUI {
                 PrintWriter out = null;
                 try {
                     out = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
+                    JOptionPane.showMessageDialog(null,"saved");
                 } catch (IOException f) {
                     JOptionPane.showMessageDialog(null,"Failed to Save!");
                 }
-                out.println("Hello World");
+                out.println(textArea1.getText());
                 out.flush();
                 out.close();
             }
@@ -61,6 +63,5 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
     }
 }
