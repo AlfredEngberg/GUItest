@@ -11,12 +11,14 @@ public class GUI {
     private JTextArea textArea1;
     private JButton newButton;
     private JComboBox fileBox1;
+    private String filename;
 
     public GUI() {
         openButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String filename = "text.txt";
+                textArea1.setText("");
+                filename = JOptionPane.showInputDialog("Fil namn:") + ".txt";
                 BufferedReader in = null;
                 try {
                     in = new BufferedReader(new FileReader(filename));
@@ -41,17 +43,36 @@ public class GUI {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String filename = "text.txt";
-                PrintWriter out = null;
-                try {
-                    out = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
-                    JOptionPane.showMessageDialog(null,"saved");
-                } catch (IOException f) {
-                    JOptionPane.showMessageDialog(null,"Failed to Save!");
+                if (filename != "") {
+                    PrintWriter out = null;
+                    try {
+                        out = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
+                        JOptionPane.showMessageDialog(null, "sparade " + filename);
+                    } catch (IOException f) {
+                        JOptionPane.showMessageDialog(null, "Failed to Save!");
+                    }
+                    out.println(textArea1.getText());
+                    out.flush();
+                    out.close();
+                } else {
+                    filename = JOptionPane.showInputDialog("Ange ett filnamn: ");
                 }
-                out.println(textArea1.getText());
-                out.flush();
-                out.close();
+            }
+        });
+        newButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    File myObj = new File(JOptionPane.showInputDialog("Ange ett filnamn") + ".txt");
+                    if (myObj.createNewFile()) {
+                        JOptionPane.showMessageDialog(null, "Fil skapad: " + myObj.getName());
+                    } else {
+                        System.out.println("Filen finns redan");
+                    }
+                } catch (IOException g) {
+                    System.out.println("An error occurred.");
+                    g.printStackTrace();
+                }
             }
         });
     }
